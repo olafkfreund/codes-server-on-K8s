@@ -4,6 +4,6 @@ version: 0.1.0
 kubeVersion: ">=1.11.0"
 keyword:
   - code-server
-home: https://github.com/gashirar/code-server-on-kubernetes
+home: https://github.com/olafkfreund/code-server-on-K8s
 maitainers:
-  - name: gashirar
+  - name: olafkfreund
