@@ -12,26 +12,26 @@ RUN apt-get update && apt-get install -y \
     wget \
     bash-completion
 
-RUN CODE_SERVER_VERSION=2.1692-vsc1.39.2 && \
+RUN CODE_SERVER_VERSION=3.2.0 && \
     mkdir /tmp/code-server && \
-    curl -L https://github.com/cdr/code-server/releases/download/${CODE_SERVER_VERSION}/code-server${CODE_SERVER_VERSION}-linux-x86_64.tar.gz -o /tmp/code-server/code-server.tar.gz && \
+    curl -L https://github.com/cdr/code-server/releases/download/${CODE_SERVER_VERSION}/code-server-${CODE_SERVER_VERSION}-linux-arm64.tar.gz -o /tmp/code-server/code-server.tar.gz && \
     tar xzvf /tmp/code-server/code-server.tar.gz -C /tmp/code-server/ --strip-components 1 && \
     chmod +x /tmp/code-server/code-server && \
     mv /tmp/code-server/code-server /usr/local/bin/code-server && \
     rm -rf /tmp/code-server
 
 ## kubectl
-RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && \
+RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/arm64/kubectl && \
     chmod +x ./kubectl && \
     mv ./kubectl /usr/local/bin/kubectl
 
 ## helm
-RUN HELM_VERSION=v3.0.0 && \
+RUN HELM_VERSION=v3.2.0 && \
     mkdir /tmp/helm && \
-    curl -L https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz -o /tmp/helm/helm.tar.gz && \
+    curl -L https://get.helm.sh/helm-${HELM_VERSION}-linux-arm64.tar.gz -o /tmp/helm/helm.tar.gz && \
     tar xvf /tmp/helm/helm.tar.gz -C /tmp/helm/ && \ 
-    chmod +x /tmp/helm/linux-amd64/helm && \
-    sudo -S mv /tmp/helm/linux-amd64/helm /usr/local/bin/helm && \
+    chmod +x /tmp/helm/linux-arm64/helm && \
+    sudo -S mv /tmp/helm/linux-arm64/helm /usr/local/bin/helm && \
     rm -r /tmp/helm
 
 # kubectx/kubens/fzf
