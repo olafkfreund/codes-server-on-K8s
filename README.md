@@ -1,5 +1,7 @@
 # code-server on Kubernetes
 
+
+This is change to fit the ARM64 architecture for Pi4+
 code-server is VS Code running on a remote server, accessible through the browser. https://github.com/cdr/code-server
 
 Authentication default password is `P@ssw0rd`.
